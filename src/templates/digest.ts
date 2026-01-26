@@ -101,11 +101,11 @@ ${input.excerpts.map((ex) => {
   <meta name=\"x-apple-disable-message-reformatting\" />
   <title>${escapeHtml(input.title)}</title>
 </head>
-<body style=\"margin:0;padding:0;background-color:#f3f4f6;\">
+<body style=\"margin:0;padding:0;background-color:#0b1220;\">
   <!-- Preheader (hidden) -->
   <div style=\"display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;\">${escapeHtml(preheader)}</div>
 
-  <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f3f4f6;\">
+  <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#0b1220;\">
     <tr>
       <td align=\"center\" style=\"padding:16px 10px;\">
         <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"max-width:${maxWidth}px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:8px;\">
@@ -132,9 +132,8 @@ ${input.excerpts.map((ex) => {
 
               ${excerptsHtml}
 
-              <div style=\"padding-top:18px;\"></div>
-              <div style=\"font-size:16px;line-height:22px;font-weight:700;color:#111827;\">Footer</div>
-              <div style=\"font-size:12px;line-height:18px;color:#6b7280;padding-top:6px;\">${escapeHtml(input.footer.unsubscribeHint)}</div>
+              <div style=\"padding-top:22px;border-top:1px solid #e5e7eb;\"></div>
+              <div style=\"font-size:12px;line-height:18px;color:#6b7280;padding-top:10px;\">${escapeHtml(input.footer.unsubscribeHint)}</div>
               <div style=\"font-size:12px;line-height:18px;color:#6b7280;padding-top:6px;\">${escapeHtml(input.footer.signature)}</div>
             </td>
           </tr>

@@ -29,7 +29,8 @@ describe('renderDailyDigest', () => {
     expect(html).toContain('Top 5');
     expect(html).toContain('Quick scan');
     expect(html).toContain('Cached excerpts');
-    expect(html).toContain('Footer');
+    // Footer section is present as unsubscribe hint + signature
+    expect(html).toContain('You are receiving this');
 
     expect(text).toContain('Top 5');
     expect(text).toContain('Quick scan');

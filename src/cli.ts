@@ -6,8 +6,10 @@ import { renderBreakingAlert } from './templates/alert.js';
 import { inlineImageToAttachment, parseInlineImageFlag } from './inlineImages.js';
 import { readDefaultToken, sendPostmarkEmail, type PostmarkAttachment } from './postmark.js';
 
-const DEFAULT_FROM = 'news.updates@execdesk.ai';
-const DEFAULT_REPLY_TO = 'quasar@execdesk.ai';
+// Defaults in the public repo use example addresses.
+// Override via --from / --reply-to in real use.
+const DEFAULT_FROM = 'News Updates <news@example.com>';
+const DEFAULT_REPLY_TO = 'reply@example.com';
 
 async function readJsonInput(inputPath?: string): Promise<any> {
   if (!inputPath || inputPath === '-') {
