@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import { renderDailyDigest } from './templates/digest.js';
 import { renderBreakingAlert } from './templates/alert.js';
 import { inlineImageToAttachment, parseInlineImageFlag } from './inlineImages.js';
+import { embedImagesForAlert, embedImagesForDigest } from './embedImages.js';
 import { readDefaultToken, sendPostmarkEmail, type PostmarkAttachment } from './postmark.js';
 
 // Defaults in the public repo use example addresses.
@@ -53,7 +54,6 @@ addCommonOptions(
     .option('--input <path>', 'JSON input file (or - for stdin)', 'examples/digest.json')
     .action(async (opts) => {
       const input = await readJsonInput(opts.input);
-      const rendered = renderDailyDigest(input);
 
       const inlineFlags: string[] = opts.inlineImage ?? [];
       const attachments: PostmarkAttachment[] = [];
@@ -61,6 +61,10 @@ addCommonOptions(
         const spec = parseInlineImageFlag(f);
         attachments.push(await inlineImageToAttachment(spec));
       }
+
+      // Always embed remote images where possible to avoid blocked remote loads / broken URLs.
+      const embeddedInput = await embedImagesForDigest(input, attachments);
+      const rendered = renderDailyDigest(embeddedInput);
 
       if (opts.dryRun) {
         process.stdout.write(rendered.text + '\n');
@@ -95,7 +99,6 @@ addCommonOptions(
     .option('--input <path>', 'JSON input file (or - for stdin)', 'examples/alert.json')
     .action(async (opts) => {
       const input = await readJsonInput(opts.input);
-      const rendered = renderBreakingAlert(input);
 
       const inlineFlags: string[] = opts.inlineImage ?? [];
       const attachments: PostmarkAttachment[] = [];
@@ -103,6 +106,10 @@ addCommonOptions(
         const spec = parseInlineImageFlag(f);
         attachments.push(await inlineImageToAttachment(spec));
       }
+
+      // Always embed remote images where possible to avoid blocked remote loads / broken URLs.
+      const embeddedInput = await embedImagesForAlert(input, attachments);
+      const rendered = renderBreakingAlert(embeddedInput);
 
       if (opts.dryRun) {
         process.stdout.write(rendered.text + '\n');
