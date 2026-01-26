@@ -1,0 +1,22 @@
+{
+  "dateLabel": "2026-01-26",
+  "title": "Daily News Digest",
+  "intro": "Here are today's highlights.",
+  "top5": [
+    {"title": "Story One", "url": "https://example.com/1", "source": "Example", "timeLabel": "09:00", "summary": "A short summary."},
+    {"title": "Story Two", "url": "https://example.com/2", "source": "Example", "timeLabel": "09:10"},
+    {"title": "Story Three", "url": "https://example.com/3", "source": "Example", "timeLabel": "09:20"},
+    {"title": "Story Four", "url": "https://example.com/4", "source": "Example", "timeLabel": "09:30"},
+    {"title": "Story Five", "url": "https://example.com/5", "source": "Example", "timeLabel": "09:40"}
+  ],
+  "quickScan": [
+    {"title": "Quick item", "url": "https://example.com/q", "source": "Example"}
+  ],
+  "excerpts": [
+    {"title": "Cached excerpt", "url": "https://example.com/e", "excerpt": "This is an excerpt block that can be included when cached text is available."}
+  ],
+  "footer": {
+    "unsubscribeHint": "You are receiving this because you asked for it.",
+    "signature": "ExecDesk News Updates"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Breaking News",
+  "urgencyLabel": "Breaking",
+  "summary": "A short summary of what happened.",
+  "bullets": ["Key point one", "Key point two"],
+  "links": [
+    {"title": "Read more", "url": "https://example.com/breaking"}
+  ],
+  "footer": {
+    "unsubscribeHint": "You are receiving this because you asked for it.",
+    "signature": "ExecDesk News Updates"
+  }
+}
