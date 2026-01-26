@@ -40,7 +40,10 @@ export function renderImg(img: TemplateImage): string {
   const alt = escapeHtml(img.alt);
   const width = img.width ? ` width=\"${img.width}\"` : '';
   const height = img.height ? ` height=\"${img.height}\"` : '';
-  const src = img.kind === 'remote' ? safeUrl(img.url) : `cid:${escapeHtml(img.contentId)}`;
+
+  const rawSrc = img.kind === 'remote' ? safeUrl(img.url) : `cid:${img.contentId}`;
+  // Important: escape & as &amp; for XHTML-ish email templates.
+  const src = escapeHtml(rawSrc);
 
   // Inline style for email clients.
   return `<img src=\"${src}\" alt=\"${alt}\"${width}${height} border=\"0\" style=\"display:block;max-width:100%;height:auto;\" />`;

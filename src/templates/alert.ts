@@ -25,13 +25,15 @@ export function renderBreakingAlert(input: BreakingAlertInput): { html: string; 
   const preheader = input.summary;
 
   const imgHtml = input.image
-    ? `<tr><td style=\"padding:0 0 12px 0;\">${renderImg(input.image)}</td></tr>`
+    ? `<div style=\"padding:0 0 12px 0;\">${renderImg(input.image)}</div>`
     : '';
 
   const bulletsHtml = (input.bullets && input.bullets.length > 0)
-    ? `<tr><td style=\"padding:10px 0;\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"font-size:14px;line-height:20px;\">
-        ${input.bullets.map((b) => `<tr><td style=\"padding:4px 0;\">• ${escapeHtml(b)}</td></tr>`).join('')}
-      </table></td></tr>`
+    ? `<div style=\"padding:10px 0;\">
+        <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"font-size:14px;line-height:20px;\">
+          ${input.bullets.map((b) => `<tr><td style=\"padding:4px 0;\">• ${escapeHtml(b)}</td></tr>`).join('')}
+        </table>
+      </div>`
     : '';
 
   const linksHtml = input.links.map((l) => {
