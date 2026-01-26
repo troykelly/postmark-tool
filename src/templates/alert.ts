@@ -48,10 +48,10 @@ export function renderBreakingAlert(input: BreakingAlertInput): { html: string; 
   <meta name=\"x-apple-disable-message-reformatting\" />
   <title>${escapeHtml(input.title)}</title>
 </head>
-<body style=\"margin:0;padding:0;background-color:#f3f4f6;\">
+<body style=\"margin:0;padding:0;background-color:#0b1220;\">
   <div style=\"display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;\">${escapeHtml(preheader)}</div>
 
-  <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#f3f4f6;\">
+  <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background-color:#0b1220;\">
     <tr>
       <td align=\"center\" style=\"padding:16px 10px;\">
         <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"max-width:${maxWidth}px;background-color:#ffffff;border:1px solid #e5e7eb;border-radius:8px;\">
@@ -59,20 +59,19 @@ export function renderBreakingAlert(input: BreakingAlertInput): { html: string; 
             <td style=\"padding:18px;font-family:Arial,Helvetica,sans-serif;color:#111827;\">
               ${imgHtml}
               <div style=\"font-size:12px;line-height:16px;color:#b91c1c;font-weight:700;text-transform:uppercase;\">${escapeHtml(input.urgencyLabel)}</div>
-              <div style=\"font-size:22px;line-height:28px;font-weight:700;padding-top:6px;\">Breaking alert</div>
+              <div style=\"font-size:22px;line-height:28px;font-weight:800;padding-top:6px;\">Breaking alert</div>
               <div style=\"font-size:16px;line-height:22px;font-weight:700;padding-top:6px;\">${escapeHtml(input.title)}</div>
               <div style=\"font-size:14px;line-height:20px;padding-top:10px;\">${escapeHtml(input.summary)}</div>
 
               ${bulletsHtml}
 
-              <div style=\"font-size:16px;line-height:22px;font-weight:700;padding:10px 0 6px 0;\">Quick scan</div>
+              <div style=\"font-size:16px;line-height:22px;font-weight:800;padding:12px 0 6px 0;\">Related links</div>
               <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"font-size:14px;line-height:20px;\">
                 ${linksHtml}
               </table>
 
-              <div style=\"padding-top:18px;\"></div>
-              <div style=\"font-size:16px;line-height:22px;font-weight:700;color:#111827;\">Footer</div>
-              <div style=\"font-size:12px;line-height:18px;color:#6b7280;padding-top:6px;\">${escapeHtml(input.footer.unsubscribeHint)}</div>
+              <div style=\"padding-top:22px;border-top:1px solid #e5e7eb;\"></div>
+              <div style=\"font-size:12px;line-height:18px;color:#6b7280;padding-top:10px;\">${escapeHtml(input.footer.unsubscribeHint)}</div>
               <div style=\"font-size:12px;line-height:18px;color:#6b7280;padding-top:6px;\">${escapeHtml(input.footer.signature)}</div>
             </td>
           </tr>

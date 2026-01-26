@@ -21,8 +21,8 @@ describe('renderBreakingAlert', () => {
     });
 
     expect(html).toContain('Breaking alert');
-    expect(html).toContain('Quick scan');
-    expect(html).toContain('Footer');
+    expect(html).toContain('Related links');
+    expect(html).toContain('You are receiving');
 
     expect(text).toContain('Breaking alert');
     expect(text).toContain('Quick scan');
