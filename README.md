@@ -7,8 +7,8 @@ CLI + renderer for elegant, email-client-compliant Postmark emails:
 
 Defaults:
 - Token: `/home/clawdbot/.postmark_transactional_token`
-- From: `news.updates@execdesk.ai`
-- Reply-To: `quasar@execdesk.ai`
+- From: `News Updates <news@example.com>`
+- Reply-To: `reply@example.com`
 
 ## Install
 
@@ -30,7 +30,7 @@ pnpm dev --help
 
 ```bash
 postmark-tool digest \
-  --to troy@troykelly.com --to me@mattyjcompton.com \
+  --to alice@example.com --to bob@example.com \
   --subject "Daily News Digest" \
   --input examples/digest.json
 ```
@@ -39,7 +39,7 @@ postmark-tool digest \
 
 ```bash
 postmark-tool alert \
-  --to troy@troykelly.com --to me@mattyjcompton.com \
+  --to alice@example.com --to bob@example.com \
   --subject "Breaking: Something happened" \
   --input examples/alert.json
 ```
@@ -56,7 +56,7 @@ Inline images are sent as Postmark attachments with a ContentID and can be refer
 
 ```bash
 postmark-tool digest \
-  --to troy@troykelly.com \
+  --to alice@example.com \
   --subject "Daily News Digest" \
   --input examples/digest.json \
   --inline-image ./examples/logo.png=logo.png,image/png,execdesk-logo
