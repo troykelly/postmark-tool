@@ -5,6 +5,7 @@ describe('embedImages', () => {
   const origFetch = globalThis.fetch;
 
   beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore - test override
     globalThis.fetch = vi.fn(async () => {
       return new Response(new Uint8Array([1, 2, 3, 4]), {
