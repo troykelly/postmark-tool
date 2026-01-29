@@ -39,8 +39,10 @@ export function renderDailyDigest(input: DailyDigestInput): { html: string; text
     ? `<tr><td style=\"padding:0 0 12px 0;\">${renderImg(input.headerImage)}</td></tr>`
     : '';
 
+  const topN = Math.min(8, input.top5.length);
+
   const top5Rows = input.top5
-    .slice(0, 5)
+    .slice(0, topN)
     .map((it, idx) => {
       const title = escapeHtml(it.title);
       const url = safeUrl(it.url);
@@ -120,7 +122,7 @@ ${input.excerpts.map((ex) => {
 
           <tr>
             <td style=\"padding:8px 18px 18px 18px;font-family:Arial,Helvetica,sans-serif;color:#111827;\">
-              <div style=\"font-size:18px;line-height:24px;font-weight:700;color:#111827;padding:8px 0;\">Top 5</div>
+              <div style=\"font-size:18px;line-height:24px;font-weight:700;color:#111827;padding:8px 0;\">Top ${topN}</div>
               <table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">
                 ${top5Rows}
               </table>
@@ -144,7 +146,7 @@ ${input.excerpts.map((ex) => {
 </body>
 </html>`;
 
-  const textTop5 = input.top5.slice(0, 5).map((it, idx) => {
+  const textTop5 = input.top5.slice(0, topN).map((it, idx) => {
     const meta = [it.source, it.timeLabel].filter(Boolean).join(' • ');
     const metaText = meta ? ` (${meta})` : '';
     const summary = it.summary ? `\n   ${it.summary}` : '';
@@ -174,7 +176,7 @@ ${input.excerpts.map((ex) => {
     input.dateLabel,
     input.intro,
     '',
-    'Top 5',
+    `Top ${topN}`,
     ...textTop5,
     '',
     'Quick scan',
